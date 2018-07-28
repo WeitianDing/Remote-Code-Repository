@@ -1,0 +1,47 @@
+============================================
+ This is a sample project for CSE687-OnLine
+============================================
+
+Parts.txt
+========================================
+This is a sample project for CSE687-OnLine.
+It is, evidently, a fairly big and complex project, typical of the kinds of software that professional 
+developers build.  I expect this may seem a bit overwhelming, but the instructor will help you interpret 
+what is here.  Also, you will find the document "CommunicationChannel.pdf", in the Project4Sample folder
+will help you understand.
+
+You can expect that your projects will be a bit simpler (but not a lot simpler).
+
+The parts in this demo are:
+- GUI (C# WPF Application)
+  - Demonstrates C# user interface sending messages through native C++ communication channel to a remote server.
+  - Connects to channel through Translater
+- Translater (C++\CLI dll)
+  - Defines managed message class
+  - Translates managed messages and strings to native messages and strings and vice versa.
+  - Connects to channel via the CommLibWrapper.
+  - Managed code (C++\CLI) is isolated from native code (C++) using IComm interface and CommLibWrapper factory
+    This is a requirement, because .Net code will not compile if kernel objects or C++ threads are visible.
+- CommLibWrapper (C++)
+  - provides factory that creates instance of Comm on native heap, returning native pointer to IComm interface.
+  - It also provides the declaration of dll exports, as required of native C++ Windows DLLs
+- MessagePassingComm (C++)
+  - Sends messages through socket-based one-way channels
+  - Sends files as a series of chunks with message headers
+  - Each endpoint has both a sender and receiver, wrapped in a Comm object
+- Sockets (C++)
+  - Socket library that supports both IP4 and IP6 protocols
+  - Provides three classes Socket, SocketConnector, and SocketListener
+- Message (C++)
+  - Defines messages as collections of attributes
+- ServerPrototype (C++)
+  - Processes incoming messages based on ServerProc callable objects, keyed to a message's command attribute
+- FileSystem (C++)
+  - Provides static functions for managing files, paths, and directories.  I borrowed heavily from the very
+    nice design of the .Net System.IO classes.
+- CodeAnalyzer (C++)
+  - This is the final Project3Sample, used to demonstrate remote code analysis
+- Process (C++)
+  - Uses the Windows API to create a process running the CodeAnalyzer on the server
+- Utilities (C++)
+  - Provides some simple string handling and type conversion facilities.

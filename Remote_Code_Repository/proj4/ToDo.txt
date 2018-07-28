@@ -1,0 +1,38 @@
+============================================
+ This is a sample project for CSE687-OnLine
+============================================
+
+ToDo:
+===================
+New Functionality:
+--------------------------------------------------------------------------
+1.  Add tab control with tabs for connection and browsing.
+2.  Add connect tab item that accepts machine name and port for the server and a button to connect
+3.  Add ability to read server port number from the server's command line.
+4.  Display server network information on its console at startup
+5.  Add repository functionality over the summer.
+
+Polishing Code:
+--------------------------------------------------------------------------
+6.  Make code analysis asynchronous by forming reply message as a callback
+7.  I don't think you can simply change the path to "StorageRoot" without breakage.  I will look at
+    that this Summer.
+8.  Refactor ServerProcs and ClientProcs to eliminate duplicate code.  Then move the procs to separate
+    files, so codes that change often are moved out of the server and client code base.
+9.  Redesign GUI to use a "provider" model for contents, e.g., display groups and elements.
+    For the current view, groups are directories and elements are files.  But you might also want
+    category groups with files with those categories, or namespace groups with files in those namespaces.
+10. Simplify path handling and pull specific path definitions into an evironment.
+11. Update Utils
+    - start by using the current string, code, and test utils
+    - add thread utils with priority etc
+    - add retry wrapper to file utils
+12. There is a Communication Channel called CppHttpClientAndServer, that implements the important parts
+    of the HTTP 1.0 protocol.  It's unfinished, although you can send pages to Chrome.  It is, like
+    all HTTP, a synchronous protocol.  It would make sense to finish this and extend to use a "oneway"
+    attribute to enable asynchronous communication, e.g., don't wait for a reply - it may come later.
+    This too, is a Summer project for me.
+13. A lot of this project was built quickly, and there are probably some latent errors, although I don't
+    know of any now (04/09/2018).  It would make a lot of sense to develop a rigourous test set for each
+    of the parts, listed in Parts.txt, similar to what you've done for your Project #1.
+

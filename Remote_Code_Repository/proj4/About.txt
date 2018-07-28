@@ -1,0 +1,52 @@
+About Project4Demo
+=======================================================
+1. Project4Demo is intended to help you pull all the necessary 
+   parts for Project #4 together into a single solution:
+   - GUI client
+   - Server
+   - MsgPassingComm
+   - NoSqlDb
+   Some supporting actors are needed as well:
+   - CommLibWrapper
+   - DateTime
+   - DbCore
+   - FileSystem
+   - PayLoad
+   - Sockets
+   - Translater
+   - Utilities
+   - XmlDocument
+2. This is not a complete solution for the Project #4 Requirements
+   but it does give you a framework for implementing them.
+3. There are Tabs:
+   - Local to show client files and directories.
+   - Remote to show server files and directories.
+   - Connect to suggest one way to avoid hard-coding machine endpoints.
+     It's blank now.
+   - Query to suggest a way for you to show selected contents of the db.
+     It's blank now.
+   - About displays the text of this file.
+3. What it does do:
+   - Shows local and remote directories and files.
+   - Double-clicking on a directory navigates into that directory
+     and shows its contents for both the local and remote locations.
+   - Double-clicking on a file in local navigator will send the file 
+     from the client to server.  Note that this is not a checkin.
+     It just sends the file to the server's saveFiles directory.
+     The server, in this demo, doesn't have a ServerProc for receiving
+     files, so it reports an unknown command.  Providing that is up
+     to you.
+   - Double-clicking on a file in remote navigator will send the file 
+     from the server to client.  Note that this is not a checkout.
+     It just sends the file to the client's saveFiles directory and
+     pops up a code viewing window.
+   - On startup the server instantiates it's NoSqlDb with a demo
+     element and displays on the console.  This shows you how to get
+     the Server to read and write from/to the db.  It does not do
+     anything else with the db.  That's up to you.
+4. There is also a grid row on the main display suitable for use as
+   a status bar.  You will need to add a TextBlock or StatusBar
+   element and write to it when that seems appropriate.  This demo
+   does not do that.
+
+

@@ -1,0 +1,50 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Project #4 Demo" Height="700" Width="700" Padding="20" FontFamily="tahoma" Background="#ccc" Loaded="Window_Loaded">
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////
+    // MainWindow.xaml - GUI for Project3HelpWPF                         //
+    // ver 1.0                                                           //
+    // Jim Fawcett, CSE687 - Object Oriented Design, Spring 2018         //
+    ///////////////////////////////////////////////////////////////////////
+    -->
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"></RowDefinition>
+      <RowDefinition Height="30"></RowDefinition>
+    </Grid.RowDefinitions>
+    <TabControl Grid.Row="0">
+      <TabItem Header=" Local   ">
+        <local:LocalNavControl x:Name="NavLocal"></local:LocalNavControl>
+      </TabItem>
+      <TabItem Header=" Remote  ">
+        <local:RemoteNavControl x:Name="NavRemote"></local:RemoteNavControl>
+      </TabItem>
+      <TabItem Header=" Connect "></TabItem>
+      <TabItem Header=" Query   ">
+                <Grid  Background="#ccc">
+                    <TextBox x:Name="cateQuery"   Height=" 30" Text="enter category query" Margin ="0,5,0,560"  ></TextBox>
+                <Button x:Name = "confirm_Cate"   Content="confirm category"   Margin="0,15,0,500" Height=" 20"  Click="confirm_Cate_Click" />
+                    <TextBox x:Name="fileNameQuery"   Height=" 30" Text="enter file name query" Margin ="0,35,0,450"  ></TextBox>
+                    <Button x:Name = "confirm_fileName"   Content="confirm file name"   Margin="0,45,0,390" Height=" 20"  Click="confirm_fileName_Click" />
+                    <TextBox x:Name="dependencyQuery"   Height=" 30" Text="enter denpendency query" Margin ="0,65,0,340"  ></TextBox>
+                    <Button x:Name = "confirm_dependency"   Content="confirm dependency"   Margin="0,75,0,280" Height=" 20"  Click="confirm_dependency_Click" />
+                    <TextBox x:Name="versionQuery"   Height=" 30" Text="enter version query" Margin ="0,95,0,230"  ></TextBox>
+                    <Button x:Name = "confirm_version"   Content="confirm version"   Margin="0,105,0,170" Height=" 20"  Click="confirm_version_Click" />
+                    <Button x:Name = "start_query" Content="start query"  Margin="0,115,0,120"   Height=" 20"  Click="start_query_Click" />
+                    <ListBox x:Name="show_Query" Height="280"  VerticalAlignment="Bottom" />
+                </Grid>
+            </TabItem>
+      <TabItem Header=" About   ">
+        <local:AboutControl>
+            
+        </local:AboutControl>
+      </TabItem>
+    </TabControl>
+  </Grid>
+</Window>
